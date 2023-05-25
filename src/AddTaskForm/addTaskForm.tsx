@@ -2,6 +2,7 @@ import React from 'react';
 
 interface AddTaskFormProps {
     onInputChange: React.ChangeEventHandler;
+    onAddTask: React.MouseEventHandler;
 }
 
 const AddTaskForm: React.FC<AddTaskFormProps> = props => {
@@ -9,7 +10,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = props => {
         <div>
             <form className="form-task">
                 <input type="text" onChange={props.onInputChange} placeholder="Add new task"/>
-                <button type="button">Add</button>
+                <button type="button" onClick={props.onAddTask}>Add</button>
             </form>
         </div>
     );

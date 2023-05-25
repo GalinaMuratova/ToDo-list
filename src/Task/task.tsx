@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface TaskProps {
-    key: string;
+    id: string;
     text: string;
 }
 const Task: React.FC<TaskProps> = props => {

@@ -14,14 +14,24 @@ function App() {
 
     const inputChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrentTask(event.target.value);
-        console.log(currentTask);
     };
+
+    const addTask = () => {
+        const taskId = String(Date.now());
+
+        const newTask = {
+            id: taskId,
+            text: currentTask
+        };
+        setTask([...tasks, newTask]);
+        setCurrentTask('');
+    }
 
     return (
         <div className="App">
-            <AddTaskForm onInputChange={inputChangeText}/>
+            <AddTaskForm onInputChange={inputChangeText} onAddTask={addTask}/>
             {tasks.map((task) => (
-                <Task key={task.id} text={task.text}/>
+                <Task id={task.id} text={task.text}/>
             ))}
         </div>
     );
