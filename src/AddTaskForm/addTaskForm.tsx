@@ -1,11 +1,15 @@
 import React from 'react';
 
-const AddTaskForm = () => {
+interface AddTaskFormProps {
+    onInputChange: React.ChangeEventHandler;
+}
+
+const AddTaskForm: React.FC<AddTaskFormProps> = props => {
     return (
         <div>
             <form className="form-task">
-                <input type="text" placeholder="Add new task"/>
-                <button type="submit">Add</button>
+                <input type="text" onChange={props.onInputChange} placeholder="Add new task"/>
+                <button type="button">Add</button>
             </form>
         </div>
     );
