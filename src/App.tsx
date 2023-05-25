@@ -5,9 +5,9 @@ import Task from "./Task/task";
 
 function App() {
     const [tasks, setTask] = useState([
-        { id: '1', text: 'Text 1' },
-        { id: '2', text: 'Text 2' },
-        { id: '3', text: 'Text 3' },
+        { id: '1', text: 'To conquer the world' },
+        { id: '2', text: 'Subjugate humanity' },
+        { id: '3', text: 'Cook dinner' },
     ]);
 
     const [currentTask, setCurrentTask] = useState('');
@@ -17,13 +17,12 @@ function App() {
     };
 
     const addTask = () => {
-        const taskId = String(Math.random());
+        const taskId = String(Date.now());
 
         const newTask = {
             id: taskId,
             text: currentTask
         };
-        console.log(tasks);
         setTask([...tasks, newTask]);
     };
     const deleteTask = (id: string) => {
@@ -35,6 +34,7 @@ function App() {
 
     return (
         <div className="App">
+            <h1>To do list</h1>
             <AddTaskForm onInputChange={inputChangeText} onAddTask={addTask} />
             {tasks.map((task) => (
                 <Task key={task.id} text={task.text} remove={() => deleteTask(task.id)}/>

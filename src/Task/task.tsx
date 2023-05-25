@@ -8,7 +8,7 @@ const Task: React.FC<TaskProps> = props => {
     return (
         <div className="task">
           <span>{props.text}</span>
-          <button type="button" onClick={props.remove}>Delete</button>
+          <button className="delete-btn" type="button" onClick={props.remove}>Delete</button>
         </div>
     );
 };
